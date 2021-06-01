@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+set -x
+
+# The repo HTTPS URL
+REPO=$1
+
+# Branch or tag, optional
+BRANCH=$2
+
+[[ ${REPO} != "" ]]
+
+if [[ "${BRANCH}" != "" ]]; then
+	BRANCH="--branch ${BRANCH}"
+fi
+
+PROJECT=$(basename ${REPO})
+
+git clone --depth 1 ${BRANCH} ${REPO} ${PROJECT}
+
+set +x
+set +e

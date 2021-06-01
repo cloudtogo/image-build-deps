@@ -12,7 +12,6 @@ VERSION=$2
 ARCHIVE_URL=https://github.com/${REPO}/archive/refs/tags/v${VERSION}.tar.gz
 PROJECT=$(basename ${REPO})
 TMP_ARCHIVE=/tmp/${PROJECT}.tar.gz
-echo "Download the archive from ${ARCHIVE_URL}"
 curl -kL ${ARCHIVE_URL} -o ${TMP_ARCHIVE}
 tar zxpf ${TMP_ARCHIVE}
 mv ${PROJECT}-${VERSION} ${PROJECT}
